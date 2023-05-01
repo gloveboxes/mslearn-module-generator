@@ -11,7 +11,7 @@
             "program": "generate.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["-i", "../input_folder", "-o", "../output_folder", ]
+            "args": ["-i", "../develop-secure-iot-solutions.project", "-o", "../develop-secure-iot-solutions.mslearn", ]
         }
     ]
 }

@@ -61,40 +61,40 @@ def get_module_key_value(units, key):
     return units.get(key, units['module'][key])
 
 
-def create_index_yml(module):
+def create_index_yml(root):
     """Create the index.yml file"""
 
     index = {}
-    index["uid"] = module['module']['uid_root']
+    index["uid"] = root['module']['uid_root']
 
     index["metadata"] = {}
-    index["metadata"]["title"] = get_module_key_value(module, 'title')
+    index["metadata"]["title"] = get_module_key_value(root, 'title')
     index["metadata"]["description"] = get_module_key_value(
-        module, 'description')
-    index["metadata"]["author"] = get_module_key_value(module, 'author')
-    index["metadata"]["ms.date"] = get_module_key_value(module, 'date')
-    index["metadata"]["ms.author"] = get_module_key_value(module, 'author')
-    index["metadata"]["ms.topic"] = get_module_key_value(module, 'topic')
-    index["metadata"]["ms.prod"] = get_module_key_value(module, 'prod')
-    index["metadata"]["ms.custom"] = get_module_key_value(module, 'custom')
+        root, 'description')
+    index["metadata"]["author"] = get_module_key_value(root, 'author')
+    index["metadata"]["ms.date"] = get_module_key_value(root, 'date')
+    index["metadata"]["ms.author"] = get_module_key_value(root, 'author')
+    index["metadata"]["ms.topic"] = get_module_key_value(root, 'topic')
+    index["metadata"]["ms.prod"] = get_module_key_value(root, 'prod')
+    index["metadata"]["ms.custom"] = get_module_key_value(root, 'custom')
 
-    index["title"] = get_module_key_value(module, 'title')
-    index["summary"] = get_module_key_value(module, 'summary')
-    index["abstract"] = get_module_key_value(module, 'abstract')
-    index["prerequisites"] = get_module_key_value(module, 'prerequisites')
-    index["levels"] = get_module_key_value(module, 'levels')
+    index["title"] = get_module_key_value(root, 'title')
+    index["summary"] = get_module_key_value(root, 'summary')
+    index["abstract"] = get_module_key_value(root, 'abstract')
+    index["prerequisites"] = get_module_key_value(root, 'prerequisites')
+    index["levels"] = get_module_key_value(root, 'levels')
 
     index["badge"] = {}
-    index["badge"]["uid"] = get_module_key_value(module, 'uid_root') + ".badge"
+    index["badge"]["uid"] = get_module_key_value(root, 'uid_root') + ".badge"
 
-    index["roles"] = get_module_key_value(module, 'roles')
-    index["products"] = get_module_key_value(module, 'products')
-    index["subjects"] = get_module_key_value(module, 'subjects')
+    index["roles"] = get_module_key_value(root, 'roles')
+    index["products"] = get_module_key_value(root, 'products')
+    index["subjects"] = get_module_key_value(root, 'subjects')
 
     index["units"] = []
 
-    for unit in module['module']['units']:
-        uid = module['module']['uid_root'] + "." + \
+    for unit in root['module']['units']:
+        uid = root['module']['uid_root'] + "." + \
             unit["unit"].lower().replace(' ', '-')
         index["units"].append(uid)
 
@@ -111,7 +111,7 @@ def main():
 
     # Read the yaml file
     with open(os.path.join(input_folder, MODULE_FILE), encoding='utf8') as quiz:
-        units = yaml.load(quiz, Loader=yaml.Loader)
+        root = yaml.load(quiz, Loader=yaml.Loader)
 
     # Read the template file
     template_loader = jinja2.FileSystemLoader(searchpath="./")
@@ -119,14 +119,14 @@ def main():
 
     template = template_env.get_template(TEMPLATE_FILE)
 
-    for unit in units['module']['units']:
+    for unit in root['module']['units']:
 
-        set_key_value(units, unit, 'uid_root')
-        set_key_value(units, unit, 'date')
-        set_key_value(units, unit, 'author')
-        set_key_value(units, unit, 'topic')
-        set_key_value(units, unit, 'prod')
-        set_key_value(units, unit, 'custom')
+        set_key_value(root, unit, 'uid_root')
+        set_key_value(root, unit, 'date')
+        set_key_value(root, unit, 'author')
+        set_key_value(root, unit, 'topic')
+        set_key_value(root, unit, 'prod')
+        set_key_value(root, unit, 'custom')
 
         markdown_filename = unit.get('unit') + ".md"
         markdown_filename = os.path.join(
@@ -154,7 +154,7 @@ def main():
         with open(filename, 'w', encoding='utf8') as quiz:
             quiz.write(output_text)
 
-    create_index_yml(units)
+    create_index_yml(root)
     copy_source_files()
     print("Done")
 
