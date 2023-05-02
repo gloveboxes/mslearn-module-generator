@@ -1,0 +1,135 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome1",
+    "definitions": {
+        "Welcome1": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "module": {
+                    "$ref": "#/definitions/Module"
+                }
+            },
+            "required": [
+                "module"
+            ],
+            "title": "Welcome1"
+        },
+        "Module": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "uid_root": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "iconUrl": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "topic": {
+                    "type": "string"
+                },
+                "prod": {
+                    "type": "string"
+                },
+                "custom": {
+                    "type": "string"
+                },
+                "subjects": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "levels": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "summary": {
+                    "type": "string"
+                },
+                "abstract": {
+                    "type": "string"
+                },
+                "prerequisites": {
+                    "type": "string"
+                },
+                "units": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Unit"
+                    }
+                }
+            },
+            "required": [
+                "abstract",
+                "author",
+                "custom",
+                "date",
+                "description",
+                "iconUrl",
+                "levels",
+                "prerequisites",
+                "prod",
+                "products",
+                "roles",
+                "subjects",
+                "summary",
+                "title",
+                "topic",
+                "uid_root",
+                "units"
+            ],
+            "title": "Module"
+        },
+        "Unit": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "unit": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "durationInMinutes": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "description",
+                "title",
+                "unit"
+            ],
+            "title": "Unit"
+        }
+    }
+}
