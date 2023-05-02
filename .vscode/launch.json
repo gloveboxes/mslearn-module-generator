@@ -8,10 +8,10 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "program": "generate.py",
+            "program": "mslearn.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["-i", "../develop-secure-iot-solutions.project", "-o", "../develop-secure-iot-solutions.mslearn", ]
+            "args": ["-i", "sample-project", "-o", "../develop-secure-iot-solutions.mslearn", ]
         }
     ]
 }
