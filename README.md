@@ -43,7 +43,7 @@ The learn Module definition file describes the following:
 - The Learn Module metadata. For example, the Learn Module date, author, description, etc.
 - The Units that make up the Module including their metadata. The title, description, and the name of the markdown or knowledge check file.
 
-Here is an example of a Module definition file:
+Here is an example of a Module definition `module.yml` file:
 
 ```yaml
 uid_root: learn.microsoft.develop-intelligent-app-azure-openai
@@ -76,8 +76,8 @@ units:
     description: In this section, we help the learner to decide if the product meets their needs. We'll explain when to use the product and how it works.
 
   - unit: 2-design-intelligent-solution.md
-      title: Design a secure IoT solution with Azure Sphere
-      description: In this section, we help the learner to design an intelligent app with the Azure OpenAI Service.
+    title: Design a secure IoT solution with Azure Sphere
+    description: In this section, we help the learner to design an intelligent app with the Azure OpenAI Service.
 
   - unit: 3-build-intelligent-solution.md
       ...
@@ -85,7 +85,7 @@ units:
 ```
 
 Notes:
-- The order of the Units in the Module definition file is the order they will appear in the Learn Module. It's easy to reorder or rename Units. When you've finished your updates, rerun the generator to update the Learn Module metadata.
+- The order of the Units in the Module definition file is the order they will appear in the Learn Module. It's easy to reorder or rename Units. When you've finished updating the `module.yml` file, rerun the generator to update the Learn Module metadata.
 - The Unit durationInMinutes is automatically calculated from the Unit markdown file. The calculation is based on an average reading speed of 250 words per minute. You can override the calculated value by adding a durationInMinutes value to the Unit definition. See the [Overriding default metadata](#overriding-default-metadata) for more information.
 
 ### Prerequisites
