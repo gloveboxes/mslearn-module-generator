@@ -46,43 +46,42 @@ The Module definition file contains the following sections:
 Here is an example of a Module definition file:
 
 ```yaml
-module:
-  uid_root: learn.microsoft.develop-intelligent-app-azure-openai
-  title: "Develop an intelligent app with Azure OpenAI Services"
-  iconUrl: /training/achievements/student-evangelism/develop-secure-iot-solutions-with-azure-sphere.svg
-  date: 05/04/2023
-  author: gloveboxes
-  topic: interactive-tutorial
-  prod: learning-azure-openai
-  custom: team=nextgen
-  subjects: [ai, cloud-computing]
-  products: [azure-openai-services]
-  roles: [ai-developer]
-  levels: [intermediate]
+uid_root: learn.microsoft.develop-intelligent-app-azure-openai
+title: "Develop an intelligent app with Azure OpenAI Services"
+iconUrl: /training/achievements/student-evangelism/develop-secure-iot-solutions-with-azure-sphere.svg
+date: 05/04/2023
+author: gloveboxes
+topic: interactive-tutorial
+prod: learning-azure-openai
+custom: team=nextgen
+subjects: [ai, cloud-computing]
+products: [azure-openai-services]
+roles: [ai-developer]
+levels: [intermediate]
 
-  summary: Create a static web app using Azure Static Web Apps and learn about Azure OpenAI Services
+summary: Create a static web app using Azure Static Web Apps and learn about Azure OpenAI Services
 
-  abstract: |
-    In this Module, you will:
-    - Create a static web app using Azure Static Web Apps
-    - Create an Azure OpenAI Service
+abstract: |
+  In this Module, you will:
+  - Create a static web app using Azure Static Web Apps
+  - Create an Azure OpenAI Service
 
-  prerequisites: |
-    - prerequisite: 1
-    - prerequisite: 2
+prerequisites: |
+  - prerequisite: 1
+  - prerequisite: 2
 
-  units:
-    - unit: 1-Introduction.md
-      title: Introduction
-      description: In this section, we help the learner to decide if the product meets their needs. We'll explain when to use the product and how it works.
+units:
+  - unit: 1-Introduction.md
+    title: Introduction
+    description: In this section, we help the learner to decide if the product meets their needs. We'll explain when to use the product and how it works.
 
-    - unit: 2-design-intelligent-solution.md
-        title: Design a secure IoT solution with Azure Sphere
-        description: In this section, we help the learner to design an intelligent app with the Azure OpenAI Service.
+  - unit: 2-design-intelligent-solution.md
+      title: Design a secure IoT solution with Azure Sphere
+      description: In this section, we help the learner to design an intelligent app with the Azure OpenAI Service.
 
-    - unit: 3-build-intelligent-solution.md
-        ...
-        ...
+  - unit: 3-build-intelligent-solution.md
+      ...
+      ...
 ```
 
 Notes:
@@ -143,12 +142,12 @@ The workflow for creating a Module is as follows:
 
 The generator aims to minimize the metadata you need to define for each unit, but there will be times when you need to override the defaults. You can add the following metadata in a Unit definition to override the defaults:
 
-  - `author`
-  - `date`
-  - `topic`
-  - `prod`
-  - `custom`
-  - `durationInMinutes`
+  - author
+  - date
+  - topic
+  - prod
+  - custom
+  - durationInMinutes
 
     For example, if you want to override the author, the date, and the durationInMinutes for a Unit you would add the following to the Unit definition:
 
