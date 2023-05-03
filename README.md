@@ -38,10 +38,10 @@ In the sample project folder, you'll find the following files and folders:
 
 The Module definition file is a yaml file that describes the Module and Units. The Module definition file is used by the generator to create the Module structure and metadata.
 
-The Module definition file contains the following sections:
+The learn Module definition file describes the following:
 
 - The Learn Module metadata. For example, the Learn Module date, author, description, etc.
-- `units` - the Units that make up the Module. The Unit title, description, and the name of the associated markdown or knowledge check file.
+- The Units that make up the Module including their metadata. The title, description, and the name of the markdown or knowledge check file.
 
 Here is an example of a Module definition file:
 
@@ -160,3 +160,33 @@ The generator aims to minimize the metadata you need to define for each unit, bu
         date: 05/05/2023
         durationInMinutes: 10
     ```
+
+## Knowledge check files
+
+The knowledge check file is a yaml file that contains the questions and answers for a knowledge check Unit. Knowledge check files must have an extension of .yml. The following is an example of a knowledge check file:
+
+```yaml
+questions:
+  - content: "In the Azure Sphere ecosystem, which component is missing from the following list: Azure Sphere SDK, Azure Sphere tenant, Azure Sphere OS?"
+    choices:
+      - content: "Azure Sphere API"
+        isCorrect: false
+        explanation: "Azure Sphere API isn't a component of the Azure Sphere ecosystem."
+      - content: "Azure Sphere Security Service"
+        isCorrect: true
+        explanation: "Azure Sphere Security Service is a key component of the Azure Sphere ecosystem."
+      - content: "Azure Sphere Security Key"
+        isCorrect: false
+        explanation: "Azure Sphere Security Key isn't a component of the Azure Sphere ecosystem."
+  - content: "Your organization created an Azure Sphere tenant and then claimed each of its devices into that tenant. What function does this accomplish?"
+    choices:
+      - content: "You can manage those devices remotely and securely."
+        isCorrect: true
+        explanation: "The tenant allows you to manage devices remotely and securely."
+      - content: "The tenant allows devices to communicate better with other tenants."
+        isCorrect: false
+        explanation: "The tenant doesn't enable communication between other tenants."
+      - content: "Your organization can name individual devices."
+        isCorrect: false
+        explanation: "The tenant doesn't enable naming of devices."
+```
