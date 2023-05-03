@@ -1,124 +1,124 @@
 # yaml-language-server: $schema=module.json
 
-module:
-  uid_root: learn.oxford.develop-secure-iot-solutions-for-azure-sphere
-  title: "Develop secure IoT solutions for Azure Sphere with Azure IoT Central"
-  description: "Develop highly secure IoT solutions with Azure Sphere, Azure RTOS and Azure IoT Central"
-  iconUrl: /training/achievements/student-evangelism/develop-secure-iot-solutions-with-azure-sphere.svg
-  date: 06/26/2020
-  author: leestott
-  topic: interactive-tutorial
-  prod: learning-azure-iot
-  custom: team=nextgen
-  subjects: [iot, cloud-computing, threat-protection]
-  products: [azure-iot-central]
-  roles: [ai-edge-engineer]
-  levels: [intermediate]
+uid_root: learn.oxford.develop-secure-iot-solutions-for-azure-sphere
+title: "Develop secure IoT solutions for Azure Sphere with Azure IoT Central"
+description: "Develop highly secure IoT solutions with Azure Sphere, Azure RTOS and Azure IoT Central"
+iconUrl: /training/achievements/student-evangelism/develop-secure-iot-solutions-with-azure-sphere.svg
+date: 06/26/2020
+author: leestott
+topic: interactive-tutorial
+prod: learning-azure-iot
+custom: team=nextgen
+subjects: [iot, cloud-computing, threat-protection]
+products: [azure-iot-central]
+roles: [ai-edge-engineer]
+levels: [intermediate]
 
-  summary: Deploy an Azure Sphere application to monitor ambient conditions for a laboratory. The application will monitor the room environment, connect to Azure IoT Central, and send telemetry data from the device to the cloud. You'll control cloud-to-device communications and undertake actions as needed.
+summary: Deploy an Azure Sphere application to monitor ambient conditions for a laboratory. The application will monitor the room environment, connect to Azure IoT Central, and send telemetry data from the device to the cloud. You'll control cloud-to-device communications and undertake actions as needed.
 
-  abstract: |
-    In this module, you will:
-    - Create an Azure IoT Central application
-    - Configure your Azure Sphere application to Azure IoT Central
-    - Build and deploy the Azure Sphere application
-    - Display environment telemetry in the Azure IoT Central dashboard
-    - Control an Azure Sphere application by using Azure IoT Central properties and commands
-    - Deploy a new more sensitive room sensor onto an Azure Sphere real-time core running Azure RTOS
-    - Read the data from the new sensor running on the real-time core and send the data to IoT Central
+abstract: |
+  In this module, you will:
+  - Create an Azure IoT Central application
+  - Configure your Azure Sphere application to Azure IoT Central
+  - Build and deploy the Azure Sphere application
+  - Display environment telemetry in the Azure IoT Central dashboard
+  - Control an Azure Sphere application by using Azure IoT Central properties and commands
+  - Deploy a new more sensitive room sensor onto an Azure Sphere real-time core running Azure RTOS
+  - Read the data from the new sensor running on the real-time core and send the data to IoT Central
 
-    "***Produced in partnership with the University of Oxford – Ajit Jaokar [Artificial Intelligence: Cloud and Edge Implementations course](https://www.conted.ox.ac.uk/courses/artificial-intelligence-cloud-and-edge-implementations)***"
-  prerequisites: |
-    - Azure Sphere kit
-    - Visual Studio Code installed in your computer
-    - Ability to use Visual Studio Code
-    - Git installed in your computer
-    - Ability to use Git/GitHub
-    - Basic knowledge of Azure Sphere
-    - Basic knowledge of Azure IoT
+  "***Produced in partnership with the University of Oxford – Ajit Jaokar [Artificial Intelligence: Cloud and Edge Implementations course](https://www.conted.ox.ac.uk/courses/artificial-intelligence-cloud-and-edge-implementations)***"
+prerequisites: |
+  - Azure Sphere kit
+  - Visual Studio Code installed in your computer
+  - Ability to use Visual Studio Code
+  - Git installed in your computer
+  - Ability to use Git/GitHub
+  - Basic knowledge of Azure Sphere
+  - Basic knowledge of Azure IoT
 
-  units:
-    - unit: 1-Introduction.md
-      title: Introduction
-      description: In this section, we help the learner to decide if the product meets their needs. We'll explain when to use the product and how it works.
+units:
 
-    - unit: 2-design-secure-iot-solution.md
-      title: Design a secure IoT solution with Azure Sphere
-      description: In this section, we help the learner to design an IoT solution securely using Azure Sphere.
+  - unit: 1-Introduction.md
+    title: Introduction
+    description: In this section, we help the learner to decide if the product meets their needs. We'll explain when to use the product and how it works.
 
-    - unit: 3-gpio-hardware-interfaces.md
-      title: Understand supported Azure Sphere devices
-      description: In this section, we help the learner to understand supported Azure Sphere devices.
+  - unit: 2-design-secure-iot-solution.md
+    title: Design a secure IoT solution with Azure Sphere
+    description: In this section, we help the learner to design an IoT solution securely using Azure Sphere.
 
-    - unit: 5-how-setup-azure-sphere.md
-      title: How to set up Azure Sphere
-      description: In this section, we set up Azure Sphere for development.
+  - unit: 3-gpio-hardware-interfaces.md
+    title: Understand supported Azure Sphere devices
+    description: In this section, we help the learner to understand supported Azure Sphere devices.
 
-    - unit: 6-exercise-setup-azure-sphere.md
-      title: Exercise - Set up Azure Sphere
-      description: In this section, we show how to set up Azure Sphere for development.
+  - unit: 5-how-setup-azure-sphere.md
+    title: How to set up Azure Sphere
+    description: In this section, we set up Azure Sphere for development.
 
-    - unit: 7-how-connect-monitor-iot-central.md
-      title: How to connect a room environment monitor to Azure IoT Central
-      description: In this section, we create an Azure Sphere application and connect it to Azure IoT Central.
+  - unit: 6-exercise-setup-azure-sphere.md
+    title: Exercise - Set up Azure Sphere
+    description: In this section, we show how to set up Azure Sphere for development.
 
-    - unit: 8-exercise-connect-room-environment-monitor.md
-      title: Exercise - Connect a room environment monitor to Azure IoT Central
-      description: In this section, we connect a room environment monitor to Azure IoT Central.
+  - unit: 7-how-connect-monitor-iot-central.md
+    title: How to connect a room environment monitor to Azure IoT Central
+    description: In this section, we create an Azure Sphere application and connect it to Azure IoT Central.
 
-    - unit: 8a-how-azure-sphere-security.md
-      title: How to secure an Azure Sphere
-      description: In this section, learn how to secure an Azure Sphere
+  - unit: 8-exercise-connect-room-environment-monitor.md
+    title: Exercise - Connect a room environment monitor to Azure IoT Central
+    description: In this section, we connect a room environment monitor to Azure IoT Central.
 
-    - unit: 8b-exercise-azure-sphere-security.md
-      title: Exercise - Secure an Azure Sphere application
-      description: In this section, we secure an Azure Sphere application.
+  - unit: 8a-how-azure-sphere-security.md
+    title: How to secure an Azure Sphere
+    description: In this section, learn how to secure an Azure Sphere
 
-    - unit: 8c-how-deploy-your-first-application.md
-      title: How to deploy a high-level application to your Azure Sphere
-      description: In this section, we deploy a high-level application to your Azure Sphere.
+  - unit: 8b-exercise-azure-sphere-security.md
+    title: Exercise - Secure an Azure Sphere application
+    description: In this section, we secure an Azure Sphere application.
 
-    - unit: 8d-exercise-deploy-your-first-application.md
-      title: Exercise - Deploy a high-level application to your Azure Sphere
-      description: In this section, we deploy a high-level application to your Azure Sphere
+  - unit: 8c-how-deploy-your-first-application.md
+    title: How to deploy a high-level application to your Azure Sphere
+    description: In this section, we deploy a high-level application to your Azure Sphere.
 
-    - unit: 9-how-set-virtual-thermostat-iot-device-twins.md
-      title: How to set the room virtual thermostat with Azure IoT device twins
-      description: In this section, we control an Azure Sphere application with Azure IoT device twins.
+  - unit: 8d-exercise-deploy-your-first-application.md
+    title: Exercise - Deploy a high-level application to your Azure Sphere
+    description: In this section, we deploy a high-level application to your Azure Sphere
 
-    - unit: 10-exercise-set-virtual-thermostat-azure-iot-device-twins.md
-      title: Exercise - Set the room virtual thermostat with Azure IoT device twins
-      description: In this section, we set the room virtual thermostat with Azure IoT device twins.
-      durationInMinutes: 8
+  - unit: 9-how-set-virtual-thermostat-iot-device-twins.md
+    title: How to set the room virtual thermostat with Azure IoT device twins
+    description: In this section, we control an Azure Sphere application with Azure IoT device twins.
 
-    - unit: 11-how-remote-reboot-device-direct-methods.md
-      title: How to remotely restart Azure Sphere with Azure IoT direct methods
-      description: In this section, we remotely restart Azure Sphere with Azure IoT direct methods.
+  - unit: 10-exercise-set-virtual-thermostat-azure-iot-device-twins.md
+    title: Exercise - Set the room virtual thermostat with Azure IoT device twins
+    description: In this section, we set the room virtual thermostat with Azure IoT device twins.
+    durationInMinutes: 8
 
-    - unit: 12-exercise-remote-reboot-device-direct-methods.md
-      title: Exercise - Remotely reboot Azure Sphere with Azure IoT direct methods
-      description: In this section, we guide the learner in how to control Azure Sphere with Azure IoT direct methods.
+  - unit: 11-how-remote-reboot-device-direct-methods.md
+    title: How to remotely restart Azure Sphere with Azure IoT direct methods
+    description: In this section, we remotely restart Azure Sphere with Azure IoT direct methods.
 
-    - unit: 13-how-azure-rtos-environment.md
-      title: How to deploy an Azure RTOS real-time sensor application to monitor the room environment
-      description: In this section, we will deploy an Azure RTOS real-time sensor application to monitor the room environment
+  - unit: 12-exercise-remote-reboot-device-direct-methods.md
+    title: Exercise - Remotely reboot Azure Sphere with Azure IoT direct methods
+    description: In this section, we guide the learner in how to control Azure Sphere with Azure IoT direct methods.
 
-    - unit: 14-exercise-azure-rtos-environment.md
-      title: Exercise - Deploy an Azure RTOS real-time sensor application to monitor the room environment
-      description: In this section, we will deploy an Azure RTOS real-time sensor application to monitor the room environment
+  - unit: 13-how-azure-rtos-environment.md
+    title: How to deploy an Azure RTOS real-time sensor application to monitor the room environment
+    description: In this section, we will deploy an Azure RTOS real-time sensor application to monitor the room environment
 
-    - unit: 15-how-partnering-with-rtos-environment.md
-      title: How to send Azure RTOS real-time room environment sensor data to IoT Central
-      description: In this section, send Azure RTOS real-time room environment sensor data to IoT Central
+  - unit: 14-exercise-azure-rtos-environment.md
+    title: Exercise - Deploy an Azure RTOS real-time sensor application to monitor the room environment
+    description: In this section, we will deploy an Azure RTOS real-time sensor application to monitor the room environment
 
-    - unit: 16-exercise-partnering-with-rtos-environment.md
-      title: Exercise - Send Azure RTOS real-time room environment sensor data to IoT Central
-      description: In this section, we send Azure RTOS real-time room environment sensor data to IoT Central
+  - unit: 15-how-partnering-with-rtos-environment.md
+    title: How to send Azure RTOS real-time room environment sensor data to IoT Central
+    description: In this section, send Azure RTOS real-time room environment sensor data to IoT Central
 
-    - unit: 18-knowledge-check.yml
-      title: Knowledge check
-      description: In this section, we create interactive questions that validate if the learner has understood the learning objectives.
+  - unit: 16-exercise-partnering-with-rtos-environment.md
+    title: Exercise - Send Azure RTOS real-time room environment sensor data to IoT Central
+    description: In this section, we send Azure RTOS real-time room environment sensor data to IoT Central
 
-    - unit: 17-summary.md
-      title: Summary
-      description: In this section, we restate the scenario and explain how it's solved and the business impact of the new solution.
+  - unit: 18-knowledge-check.yml
+    title: Knowledge check
+    description: In this section, we create interactive questions that validate if the learner has understood the learning objectives.
+
+  - unit: 17-summary.md
+    title: Summary
+    description: In this section, we restate the scenario and explain how it's solved and the business impact of the new solution.

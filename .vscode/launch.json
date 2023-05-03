@@ -11,7 +11,7 @@
             "program": "mslearn.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args": ["-i", "sample-project", "-o", "../develop-secure-iot-solutions.mslearn", ]
+            "args": ["-p", "sample-project", "-m", "../develop-secure-iot-solutions.mslearn", ]
         }
     ]
 }

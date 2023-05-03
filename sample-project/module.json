@@ -1,21 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/Welcome1",
+    "$ref": "#/definitions/Welcome9",
     "definitions": {
-        "Welcome1": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "module": {
-                    "$ref": "#/definitions/Module"
-                }
-            },
-            "required": [
-                "module"
-            ],
-            "title": "Welcome1"
-        },
-        "Module": {
+        "Welcome9": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -105,7 +92,7 @@
                 "uid_root",
                 "units"
             ],
-            "title": "Module"
+            "title": "Welcome9"
         },
         "Unit": {
             "type": "object",
@@ -122,6 +109,21 @@
                 },
                 "durationInMinutes": {
                     "type": "integer"
+                },
+                "author": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string"
+                },
+                "topic": {
+                    "type": "string"
+                },
+                "prod": {
+                    "type": "string"
+                },
+                "custom": {
+                    "type": "string"
                 }
             },
             "required": [

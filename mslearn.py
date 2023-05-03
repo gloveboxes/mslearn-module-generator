@@ -70,12 +70,17 @@ def copy_source_files():
 
 def get_key_value(root, key):
     """get key from module"""
-    return root.get('module').get(key)
+    return root.get(key)
+
+
+def get_unit_key_value(root, unit, key):
+    """get key from unit if not found then get from module"""
+    return unit.get(key, root.get(key))
 
 
 def create_uid(root, unit):
     """Create the uid for the unit"""
-    return root['module']['uid_root'] + "." + unit["unit"].lower().replace(' ', '-').split(".")[0]
+    return root.get('uid_root') + "." + unit["unit"].lower().replace(' ', '-').split(".")[0]
 
 
 def calculate_read_time(text):
@@ -85,11 +90,11 @@ def calculate_read_time(text):
     return reading_time
 
 
-def create_index_yml(root):
+def create_module_index_yml(root):
     """Create the index.yml file"""
 
     index = {}
-    index["uid"] = root['module']['uid_root']
+    index["uid"] = root.get('uid_root')
 
     index["metadata"] = {}
     index["metadata"]["title"] = get_key_value(root, 'title')
@@ -116,7 +121,7 @@ def create_index_yml(root):
 
     index["units"] = []
 
-    for unit in root['module']['units']:
+    for unit in root['units']:
         index["units"].append(create_uid(root, unit))
 
     filename = os.path.join(OUTPUT_FOLDER, INDEX_YAML)
@@ -125,28 +130,39 @@ def create_index_yml(root):
         yaml.dump(index, file)
 
 
-def create_module_yml(root):
+def create_module_unit_yml(root):
     """Create the module.yml file"""
-    for unit in root['module']['units']:
+    for unit in root['units']:
 
-        markdown_filename = unit.get('unit')
-        markdown_filename = os.path.join(
-            INPUT_FOLDER, SOURCE_FOLDER, markdown_filename)
+        unit_filename = unit.get('unit')
+        unit_filename = os.path.join(INPUT_FOLDER, SOURCE_FOLDER, unit_filename)
 
-        if os.path.isfile(markdown_filename):
-            text = open(markdown_filename, encoding='utf8').read()
+        if os.path.isfile(unit_filename):
+            text = open(unit_filename, encoding='utf8').read()
 
-            if markdown_filename.endswith(".yml"):
+            if unit_filename.endswith(".yml"):
 
                 question = yaml.load(text, Loader=yaml.Loader)
                 unit['quiz'] = question
 
             if unit.get('durationInMinutes') is None:
-                unit['durationInMinutes'] = calculate_read_time(text)                
+                unit['durationInMinutes'] = calculate_read_time(text)
 
         else:
-            print("Unit file .md or .yml not found for: " + unit['unit'])
-            exit()
+            with open(unit_filename, encoding='utf8', mode='w') as file:
+                if unit_filename.endswith(".md"):
+                    title = unit.get('title')
+                    description = unit.get('description')
+                    file.write(f'[//]: # ({title})\n')
+                    file.write(f'[//]: # ({description})\n')
+                if unit_filename.endswith(".yml"):
+                    title = unit.get('title')
+                    description = unit.get('description')
+                    file.write(f'# ({title})\n')
+                    file.write(f'# ({description})\n')
+                    file.write('questions:\n')
+                    unit['quiz'] = {}
+                    unit['quiz']['questions'] = None
 
         output = {}
         output["uid"] = create_uid(root, unit)
@@ -155,12 +171,12 @@ def create_module_yml(root):
         output["metadata"] = {}
         output["metadata"]["title"] = unit.get('title')
         output["metadata"]["description"] = unit.get('description')
-        output["metadata"]["ms.date"] = get_key_value(root, 'date')
-        output["metadata"]["author"] = get_key_value(root, 'author')
-        output["metadata"]["ms.author"] = get_key_value(root, 'author')
-        output["metadata"]["ms.topic"] = get_key_value(root, 'topic')
-        output["metadata"]["ms.prod"] = get_key_value(root, 'prod')
-        output["metadata"]["ms.custom"] = get_key_value(root, 'custom')
+        output["metadata"]["ms.date"] = get_unit_key_value(root, unit, 'date')
+        output["metadata"]["author"] = get_unit_key_value(root, unit, 'author')
+        output["metadata"]["ms.author"] = get_unit_key_value(root, unit, 'author')
+        output["metadata"]["ms.topic"] = get_unit_key_value(root, unit, 'topic')
+        output["metadata"]["ms.prod"] = get_unit_key_value(root, unit, 'prod')
+        output["metadata"]["ms.custom"] = get_unit_key_value(root, unit, 'custom')
         output["durationInMinutes"] = unit.get('durationInMinutes')
 
         if unit.get('quiz') is not None:
@@ -191,8 +207,8 @@ def main():
             with open(filename, encoding='utf8') as quiz:
                 root = yaml.load(quiz, Loader=yaml.Loader)
 
-                create_module_yml(root)
-                create_index_yml(root)
+                create_module_unit_yml(root)
+                create_module_index_yml(root)
                 copy_source_files()
                 print("Done")
 
@@ -206,12 +222,12 @@ def main():
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--input_folder")
-    parser.add_argument("-o", "--output_folder")
+    parser.add_argument("-p", "--project")
+    parser.add_argument("-m", "--module")
 
     args = parser.parse_args()
 
-    INPUT_FOLDER = args.input_folder
-    OUTPUT_FOLDER = args.output_folder
+    INPUT_FOLDER = args.project
+    OUTPUT_FOLDER = args.module
 
     main()
