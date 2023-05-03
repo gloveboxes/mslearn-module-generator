@@ -93,33 +93,29 @@ def calculate_read_time(text):
 def create_module_index_yml(root):
     """Create the index.yml file"""
 
-    index = {}
-    index["uid"] = root.get('uid_root')
-
-    index["metadata"] = {}
-    index["metadata"]["title"] = get_key_value(root, 'title')
-    index["metadata"]["description"] = get_key_value(root, 'description')
-    index["metadata"]["author"] = get_key_value(root, 'author')
-    index["metadata"]["ms.date"] = get_key_value(root, 'date')
-    index["metadata"]["ms.author"] = get_key_value(root, 'author')
-    index["metadata"]["ms.topic"] = get_key_value(root, 'topic')
-    index["metadata"]["ms.prod"] = get_key_value(root, 'prod')
-    index["metadata"]["ms.custom"] = get_key_value(root, 'custom')
-
-    index["title"] = get_key_value(root, 'title')
-    index["summary"] = get_key_value(root, 'summary')
-    index["abstract"] = get_key_value(root, 'abstract')
-    index["prerequisites"] = get_key_value(root, 'prerequisites')
-    index["levels"] = get_key_value(root, 'levels')
-
-    index["badge"] = {}
-    index["badge"]["uid"] = get_key_value(root, 'uid_root') + ".badge"
-
-    index["roles"] = get_key_value(root, 'roles')
-    index["products"] = get_key_value(root, 'products')
-    index["subjects"] = get_key_value(root, 'subjects')
-
-    index["units"] = []
+    index = {
+        "uid": root.get('uid_root'),
+        "metadata":
+            {"title": get_key_value(root, 'title'),
+                "description": get_key_value(root, 'description'),
+                "author": get_key_value(root, 'author'),
+                "ms.date": get_key_value(root, 'date'),
+                "ms.author": get_key_value(root, 'author'),
+                "ms.topic": get_key_value(root, 'topic'),
+                "ms.prod": get_key_value(root, 'prod'),
+                "ms.custom": get_key_value(root, 'custom')
+             },
+        "title": get_key_value(root, 'title'),
+        "summary": get_key_value(root, 'summary'),
+        "abstract": get_key_value(root, 'abstract'),
+        "prerequisites": get_key_value(root, 'prerequisites'),
+        "levels": get_key_value(root, 'levels'),
+        "roles": get_key_value(root, 'roles'),
+        "products": get_key_value(root, 'products'),
+        "subjects": get_key_value(root, 'subjects'),
+        "badge": {"uid": get_key_value(root, 'uid_root') + ".badge"},
+        "units": []
+    }
 
     for unit in root['units']:
         index["units"].append(create_uid(root, unit))
@@ -128,6 +124,24 @@ def create_module_index_yml(root):
     with open(filename, 'w', encoding='utf8') as file:
         file.write("### YamlMime:Module\n")
         yaml.dump(index, file)
+
+
+def create_new_content_file(unit, unit_filename):
+    """Create the new content file"""
+    with open(unit_filename, encoding='utf8', mode='w') as file:
+        if unit_filename.endswith(".md"):
+            title = unit.get('title')
+            description = unit.get('description')
+            file.write(f'[//]: # ({title})\n')
+            file.write(f'[//]: # ({description})\n')
+        if unit_filename.endswith(".yml"):
+            title = unit.get('title')
+            description = unit.get('description')
+            file.write(f'# ({title})\n')
+            file.write(f'# ({description})\n')
+            file.write('questions:\n')
+            unit['quiz'] = {}
+            unit['quiz']['questions'] = None
 
 
 def create_module_unit_yml(root):
@@ -141,43 +155,29 @@ def create_module_unit_yml(root):
             text = open(unit_filename, encoding='utf8').read()
 
             if unit_filename.endswith(".yml"):
-
                 question = yaml.load(text, Loader=yaml.Loader)
                 unit['quiz'] = question
 
             if unit.get('durationInMinutes') is None:
                 unit['durationInMinutes'] = calculate_read_time(text)
-
         else:
-            with open(unit_filename, encoding='utf8', mode='w') as file:
-                if unit_filename.endswith(".md"):
-                    title = unit.get('title')
-                    description = unit.get('description')
-                    file.write(f'[//]: # ({title})\n')
-                    file.write(f'[//]: # ({description})\n')
-                if unit_filename.endswith(".yml"):
-                    title = unit.get('title')
-                    description = unit.get('description')
-                    file.write(f'# ({title})\n')
-                    file.write(f'# ({description})\n')
-                    file.write('questions:\n')
-                    unit['quiz'] = {}
-                    unit['quiz']['questions'] = None
+            create_new_content_file(unit, unit_filename)
 
-        output = {}
-        output["uid"] = create_uid(root, unit)
-
-        output["title"] = unit.get('title')
-        output["metadata"] = {}
-        output["metadata"]["title"] = unit.get('title')
-        output["metadata"]["description"] = unit.get('description')
-        output["metadata"]["ms.date"] = get_unit_key_value(root, unit, 'date')
-        output["metadata"]["author"] = get_unit_key_value(root, unit, 'author')
-        output["metadata"]["ms.author"] = get_unit_key_value(root, unit, 'author')
-        output["metadata"]["ms.topic"] = get_unit_key_value(root, unit, 'topic')
-        output["metadata"]["ms.prod"] = get_unit_key_value(root, unit, 'prod')
-        output["metadata"]["ms.custom"] = get_unit_key_value(root, unit, 'custom')
-        output["durationInMinutes"] = unit.get('durationInMinutes')
+        output = {
+            "uid": create_uid(root, unit),
+            "title": unit.get('title'),
+            "metadata": {
+                "title": unit.get('title'),
+                "description": unit.get('description'),
+                "ms.date": get_unit_key_value(root, unit, 'date'),
+                "author": get_unit_key_value(root, unit, 'author'),
+                "ms.author": get_unit_key_value(root, unit, 'author'),
+                "ms.topic": get_unit_key_value(root, unit, 'topic'),
+                "ms.prod": get_unit_key_value(root, unit, 'prod'),
+                "ms.custom": get_unit_key_value(root, unit, 'custom')
+            },
+            "durationInMinutes": unit.get('durationInMinutes')
+        }
 
         if unit.get('quiz') is not None:
             output["quiz"] = unit.get('quiz')

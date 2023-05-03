@@ -66,55 +66,6 @@ units:
     title: Exercise - Connect a room environment monitor to Azure IoT Central
     description: In this section, we connect a room environment monitor to Azure IoT Central.
 
-  - unit: 8a-how-azure-sphere-security.md
-    title: How to secure an Azure Sphere
-    description: In this section, learn how to secure an Azure Sphere
-
-  - unit: 8b-exercise-azure-sphere-security.md
-    title: Exercise - Secure an Azure Sphere application
-    description: In this section, we secure an Azure Sphere application.
-
-  - unit: 8c-how-deploy-your-first-application.md
-    title: How to deploy a high-level application to your Azure Sphere
-    description: In this section, we deploy a high-level application to your Azure Sphere.
-
-  - unit: 8d-exercise-deploy-your-first-application.md
-    title: Exercise - Deploy a high-level application to your Azure Sphere
-    description: In this section, we deploy a high-level application to your Azure Sphere
-
-  - unit: 9-how-set-virtual-thermostat-iot-device-twins.md
-    title: How to set the room virtual thermostat with Azure IoT device twins
-    description: In this section, we control an Azure Sphere application with Azure IoT device twins.
-
-  - unit: 10-exercise-set-virtual-thermostat-azure-iot-device-twins.md
-    title: Exercise - Set the room virtual thermostat with Azure IoT device twins
-    description: In this section, we set the room virtual thermostat with Azure IoT device twins.
-    durationInMinutes: 8
-
-  - unit: 11-how-remote-reboot-device-direct-methods.md
-    title: How to remotely restart Azure Sphere with Azure IoT direct methods
-    description: In this section, we remotely restart Azure Sphere with Azure IoT direct methods.
-
-  - unit: 12-exercise-remote-reboot-device-direct-methods.md
-    title: Exercise - Remotely reboot Azure Sphere with Azure IoT direct methods
-    description: In this section, we guide the learner in how to control Azure Sphere with Azure IoT direct methods.
-
-  - unit: 13-how-azure-rtos-environment.md
-    title: How to deploy an Azure RTOS real-time sensor application to monitor the room environment
-    description: In this section, we will deploy an Azure RTOS real-time sensor application to monitor the room environment
-
-  - unit: 14-exercise-azure-rtos-environment.md
-    title: Exercise - Deploy an Azure RTOS real-time sensor application to monitor the room environment
-    description: In this section, we will deploy an Azure RTOS real-time sensor application to monitor the room environment
-
-  - unit: 15-how-partnering-with-rtos-environment.md
-    title: How to send Azure RTOS real-time room environment sensor data to IoT Central
-    description: In this section, send Azure RTOS real-time room environment sensor data to IoT Central
-
-  - unit: 16-exercise-partnering-with-rtos-environment.md
-    title: Exercise - Send Azure RTOS real-time room environment sensor data to IoT Central
-    description: In this section, we send Azure RTOS real-time room environment sensor data to IoT Central
-
   - unit: 18-knowledge-check.yml
     title: Knowledge check
     description: In this section, we create interactive questions that validate if the learner has understood the learning objectives.
