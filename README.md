@@ -140,7 +140,7 @@ The workflow for creating a Module is as follows:
 
 ## Overriding default metadata
 
-The generator aims to minimize the metadata you need to define for each unit, but there will be times when you need to override the defaults. You can add the following metadata in a Unit definition to override the defaults:
+The generator aims to minimize the metadata you need to define for each unit, but there will be times when you need to override the defaults. You can add the following properties to a Unit definition to override the defaults:
 
   - author
   - date
