@@ -30,8 +30,7 @@ def delete_output_folder():
     if os.path.exists(OUTPUT_FOLDER):
 
         print("")
-        print(
-            "You are about to delete the Learn Output Folder {OUTPUT_FOLDER}.")
+        print("You are about to delete the Learn Output Folder {OUTPUT_FOLDER}.")
         print("Are you sure you wish to delete? (y/n)", end="")
 
         answer = input().lower().strip()
@@ -48,8 +47,7 @@ def copy_source_files():
     """Copy project assets to MS Learning format"""
 
     # Copy all the markdown files to the includes folder
-    pathlib.Path(os.path.join(OUTPUT_FOLDER, INCLUDES_FOLDER)
-                 ).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(os.path.join(OUTPUT_FOLDER, INCLUDES_FOLDER)).mkdir(parents=True, exist_ok=True)
 
     for filename in os.listdir(os.path.join(INPUT_FOLDER, SOURCE_FOLDER)):
         if filename.endswith(".md"):
@@ -149,7 +147,8 @@ def create_module_unit_yml(root):
     for unit in root['units']:
 
         unit_filename = unit.get('unit')
-        unit_filename = os.path.join(INPUT_FOLDER, SOURCE_FOLDER, unit_filename)
+        unit_filename = os.path.join(
+            INPUT_FOLDER, SOURCE_FOLDER, unit_filename)
 
         if os.path.isfile(unit_filename):
             text = open(unit_filename, encoding='utf8').read()
@@ -202,7 +201,6 @@ def main():
 
         filename = os.path.join(INPUT_FOLDER, MODULE_DEFINITION)
         if os.path.isfile(filename):
-
             # Read the yaml file
             with open(filename, encoding='utf8') as quiz:
                 root = yaml.load(quiz, Loader=yaml.Loader)
@@ -211,10 +209,8 @@ def main():
                 create_module_index_yml(root)
                 copy_source_files()
                 print("Done")
-
         else:
             print("Module definition file not found: " + filename)
-
     else:
         print("Input folder not found: " + INPUT_FOLDER)
 
