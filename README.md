@@ -40,7 +40,7 @@ The Module definition file is a yaml file that describes the Module and Units. T
 
 The Module definition file contains the following sections:
 
-- `module` - the Module metadata. For example, the Module date, author, description, etc.
+- The Learn Module metadata. For example, the Learn Module date, author, description, etc.
 - `units` - the Units that make up the Module. The Unit title, description, and the name of the associated markdown or knowledge check file.
 
 Here is an example of a Module definition file:
