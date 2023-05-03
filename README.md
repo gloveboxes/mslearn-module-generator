@@ -30,9 +30,9 @@ In the sample project folder, you'll find the following files and folders:
 
 - `module.yml` - the Module definition file.
 - `module.json` - the schema file for the Module definition file.
-- `source` - the folder that contains the content for the Module. You add your markdown and knowledge check files to this folder.
-- `media` - the folder that contains the images for the Module. You add your images to this folder.
-- `resources` - the folder that contains the resources for the Module. You add your resources to this folder. For example, you might have a PowerPoint file you've used to create the images for the Module. The resources folder is a great place to store these files.
+- `source` - the folder that contains the content for the Module. Add your markdown (.md) and knowledge check (.yml) files to this folder.
+- `media` - the folder that contains the images for the Module. Add the images for the Units to this folder.
+- `resources` - the folder that contains the resources for the Module. Add your resources to this folder. For example, you might have a PowerPoint file you've used to create the images for the Module. The resources folder is a great place to store these files.
 
 ### Understanding the Module Definition File
 
