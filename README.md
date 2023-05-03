@@ -1,4 +1,4 @@
-# MS Learn Content Generator
+# MS Learn Module Generator
 
 The MS Learn Module Generator simplifies creating and maintaining MS Learn modules. You focus on the content, and the generator looks after the scaffolding and metadata.
 
