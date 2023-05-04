@@ -24,6 +24,9 @@
                 "author": {
                     "type": "string"
                 },
+                "ms.author": {
+                    "type": "string"
+                },
                 "topic": {
                     "type": "string"
                 },
@@ -76,6 +79,7 @@
             "required": [
                 "abstract",
                 "author",
+                "ms.author",
                 "custom",
                 "date",
                 "description",
@@ -111,6 +115,9 @@
                     "type": "integer"
                 },
                 "author": {
+                    "type": "string"
+                },
+                "ms.author": {
                     "type": "string"
                 },
                 "date": {

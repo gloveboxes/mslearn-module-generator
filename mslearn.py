@@ -23,6 +23,38 @@ OUTPUT_FOLDER = None
 
 AVG_READING_WORDS_PER_MINUTE = 250
 
+UNIT_TEMPLATE = """
+[//]: # (1. Topic sentences)\n\n
+[//]: # (   Goal: briefly summarize the key skills this unit will teach)\n\n
+"""
+
+
+QUIZ = """
+questions:
+  - content: "Sample question with multichoice answers?"
+    choices:
+      - content: "Answer option 1"
+        isCorrect: false
+        explanation: "Answer option 1 is incorrect because..."
+      - content: "Sample answer option 2"
+        isCorrect: true
+        explanation: "Answer option 2 is correct because..."
+      - content: "Answer option 3"
+        isCorrect: false
+        explanation: "Answer option 3 is incorrect because..."
+  - content: "Sample question with multichoice answers?"
+    choices:
+      - content: "Answer option 1"
+        isCorrect: false
+        explanation: "Answer option 1 is incorrect because..."
+      - content: "Sample answer option 2"
+        isCorrect: true
+        explanation: "Answer option 2 is correct because..."
+      - content: "Answer option 3"
+        isCorrect: false
+        explanation: "Answer option 3 is incorrect because..."
+"""
+
 
 def delete_output_folder():
     """Reset the output folder"""
@@ -98,7 +130,7 @@ def create_module_index_yml(root):
                 "description": get_key_value(root, 'description'),
                 "author": get_key_value(root, 'author'),
                 "ms.date": get_key_value(root, 'date'),
-                "ms.author": get_key_value(root, 'author'),
+                "ms.author": get_key_value(root, 'ms.author'),
                 "ms.topic": get_key_value(root, 'topic'),
                 "ms.prod": get_key_value(root, 'prod'),
                 "ms.custom": get_key_value(root, 'custom')
@@ -132,14 +164,14 @@ def create_new_content_file(unit, unit_filename):
             description = unit.get('description')
             file.write(f'[//]: # ({title})\n')
             file.write(f'[//]: # ({description})\n')
+            file.write(UNIT_TEMPLATE)
         if unit_filename.endswith(".yml"):
             title = unit.get('title')
             description = unit.get('description')
-            file.write(f'# ({title})\n')
-            file.write(f'# ({description})\n')
-            file.write('questions:\n')
-            unit['quiz'] = {}
-            unit['quiz']['questions'] = None
+            file.write(f'# {title}\n')
+            file.write(f'# {description}\n')
+            file.write('# The following is an example with two multichoice questions\n')
+            yaml.dump(yaml.safe_load(QUIZ), file, width=1000)
 
 
 def create_module_unit_yml(root):
@@ -170,7 +202,7 @@ def create_module_unit_yml(root):
                 "description": unit.get('description'),
                 "ms.date": get_unit_key_value(root, unit, 'date'),
                 "author": get_unit_key_value(root, unit, 'author'),
-                "ms.author": get_unit_key_value(root, unit, 'author'),
+                "ms.author": get_unit_key_value(root, unit, 'ms.author'),
                 "ms.topic": get_unit_key_value(root, unit, 'topic'),
                 "ms.prod": get_unit_key_value(root, unit, 'prod'),
                 "ms.custom": get_unit_key_value(root, unit, 'custom')

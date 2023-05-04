@@ -5,7 +5,8 @@ title: "Develop secure IoT solutions for Azure Sphere with Azure IoT Central"
 description: "Develop highly secure IoT solutions with Azure Sphere, Azure RTOS and Azure IoT Central"
 iconUrl: /training/achievements/student-evangelism/develop-secure-iot-solutions-with-azure-sphere.svg
 date: 06/26/2020
-author: leestott
+author: gloveboxes
+ms.author: dglover
 topic: interactive-tutorial
 prod: learning-azure-iot
 custom: team=nextgen
